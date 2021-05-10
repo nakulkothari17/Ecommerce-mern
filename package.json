@@ -1,0 +1,28 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+
+    "client": "npm start --prefix frontend",
+    "build": "cd frontend && npm run build",
+    "install-frontend": "cd frontend  && npm install",
+    "start": "node backend/server.js",
+    "heroku-postbuild": "npm run install-frontend && npm run build",  
+    "server": "nodemon backend/server.js --ignore-client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node backend/seederScript.js" 
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^9.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.7"
+  },
+  "devDependencies": {
+    "concurrently": "^6.1.0",
+    "nodemon": "^2.0.7"
+  }
+}
